@@ -1,7 +1,6 @@
 package com.hrms.sol.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.*;
 
 @Entity
@@ -12,7 +11,8 @@ import lombok.*;
 public class Department {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
+    @SequenceGenerator(name = "seq", sequenceName = "seq", allocationSize = 1)
     private Long id;
     private String name;
 }

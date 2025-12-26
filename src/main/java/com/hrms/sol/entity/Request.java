@@ -9,7 +9,8 @@ import lombok.*;
 public class Request {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
+    @SequenceGenerator(name = "seq", sequenceName = "seq", allocationSize = 1)
     private Long id;
 
     private Long userId;
@@ -20,7 +21,7 @@ public class Request {
 
     public String reason;
 
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "text")
     private String payload; 
 
     private String remark;

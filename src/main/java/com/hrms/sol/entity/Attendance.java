@@ -11,7 +11,8 @@ import java.time.*;
 public class Attendance {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
+    @SequenceGenerator(name = "seq", sequenceName = "seq", allocationSize = 1)
     private Long id;
     @Column(nullable = false)
     private Long userId;
@@ -22,6 +23,5 @@ public class Attendance {
     private LocalTime checkIn;
     private LocalTime checkOut;
     private String remarks;
-
 
 }
