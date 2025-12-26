@@ -22,7 +22,7 @@ public class EmployeeController {
     }
 
 
-    @PostMapping("/admin/register")
+    @PostMapping("/register")
     public String create(@RequestBody Employee e) {
         if (repo.findByEmail(e.getEmail()).isPresent()) {
             return "Employee exist";
